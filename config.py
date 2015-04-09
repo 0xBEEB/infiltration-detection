@@ -1,6 +1,7 @@
 settings = {
         "username": "infiltration_bot",
         "password": "Wouldn't you like to know",
+        "delay": 15,
         "suspicious_subs": [
             "anarchism",
             "anarcho_capitalism",
@@ -12,9 +13,13 @@ settings = {
             "beatingtrannies",
             "coontown",
             "conservative",
+            "conspiracy",
+            "darkenlightenment",
             "european",
             "fatlogic",
             "fatpeoplehate",
+            "gendercritical",
+            "gender_critical",
             "greatapes",
             "hbd",
             "killingwomen",
@@ -34,8 +39,9 @@ settings = {
             "strugglefucking",
             "theredpill",
             "trans_fags",
-            "tumblerinaction",
+            "tumblrinaction",
             "whiterights",
+            "wikiinaction",
             ],
         }
 

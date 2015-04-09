@@ -58,6 +58,7 @@ def main():
             sys.exit(0)
         except:
             pass
+        time.sleep(settings['delay'])
 
 if __name__ == "__main__":
     main()
