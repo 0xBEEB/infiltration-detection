@@ -16,12 +16,12 @@ class Bot:
         self.suspicious_subs = subs
 
     def check_and_respond(self):
-        new_messages = self.get_unread(limit=None)
+        new_messages = self.reddit.get_unread(limit=None)
 
         for msg in new_messages:
             msg.mark_as_read()
-            user_to_infiltrate = get_user_name_from_message(msg.body)
-            user = User(user_to_infiltrate, r, self.suspicious_subs, 50)
+            user_to_infiltrate = self.get_user_name_from_message(msg.body)
+            user = User(user_to_infiltrate, self.reddit, self.suspicious_subs, 50)
             user.process_comments()
             user.process_submitted()
 
@@ -34,7 +34,7 @@ class Bot:
             msg.reply(info)
 
 
-    def get_user_name_from_message(body):
+    def get_user_name_from_message(self, body):
         possible_users = [user for user in body.split() if user.startswith('/u/')]
         if len(possible_users) > 0:
             return possible_users[0][3:]
