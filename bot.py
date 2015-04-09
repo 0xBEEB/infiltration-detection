@@ -50,13 +50,14 @@ def main():
               settings['password'],
               settings['suspicious_subs'])
 
-    try:
-        bot.check_and_respond()
-    except KeyboardInterrupt:
-        print "Exiting\n"
-        sys.exit(0)
-    except:
-        pass
+    while True:
+        try:
+            bot.check_and_respond()
+        except KeyboardInterrupt:
+            print "Exiting\n"
+            sys.exit(0)
+        except:
+            pass
 
 if __name__ == "__main__":
     main()
