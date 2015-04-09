@@ -11,17 +11,17 @@ class Bot:
     def __init__(self, username, password, subs):
         self.reddit = praw.Reddit('PRAW infiltration detection by /u/flaxrabbit v 1.0. ' +
                         'Url: http://github.com/ubiquill/infiltration-detection')
-        self.reddit.login(settings['username'], settings['password'])
+        self.reddit.login(username, password)
 
-        suspicious_subs = settings['suspicious_subs']
+        self.suspicious_subs = subs
 
     def check_and_respond(self):
-        new_messages = r.get_unread(limit=None)
+        new_messages = self.get_unread(limit=None)
 
         for msg in new_messages:
             msg.mark_as_read()
             user_to_infiltrate = get_user_name_from_message(msg.body)
-            user = User(user_to_infiltrate, r, suspicious_subs, 50)
+            user = User(user_to_infiltrate, r, self.suspicious_subs, 50)
             user.process_comments()
             user.process_submitted()
 
