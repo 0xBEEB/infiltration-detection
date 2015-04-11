@@ -48,7 +48,7 @@ class UserReport:
             self.output.write("/u/%s " % self.user.username)
             self.output.write("post history contains participation in the ")
             self.output.write("following subreddits:\n\n")
-            for subreddit in sorted(data, key=lambda k: (len(data[k]['posts']), len(data[k]['comments'])), reverse=True):
+            for subreddit in sorted(data, key=lambda k: ((0 if 'posts' not in data[k] else len(data[k]['posts'])), (0 if 'comments' not in data[k] else len(data[k]['comments']))), reverse=True):
                 self._write_data(subreddit, data[subreddit])
             self.output.write(".")
 
