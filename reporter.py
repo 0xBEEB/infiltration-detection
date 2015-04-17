@@ -67,7 +67,7 @@ class UserReport:
             self._write_post_data(sub_data['posts'])
         if 'comments' in sub_data:
             if 'posts' in sub_data:
-                self.output.write("; ");
+                self.output.write("; ")
             self._write_comment_data(subreddit, sub_data['comments'])
 
     def _write_post_data(self, posts):
@@ -78,7 +78,7 @@ class UserReport:
             score = posts[0].score
             link = posts[0].permalink
             link = link.replace("http://www.", "http://np.")
-            self.output.write("%d post ([1](%s)), **total score: %d;**" % (len(posts), link, score))
+            self.output.write("%d post ([1](%s)), **total score: %d**" % (len(posts), link, score))
         elif len(posts) > 1:
             score = 0
             self.output.write("%d posts (" % (len(posts)))
@@ -104,7 +104,7 @@ class UserReport:
             permalink = "http://www.reddit.com/r/%s/comments/%s/_/%s" % (subreddit, comments[0].link_id[3:], comments[0].id)
             link = permalink.replace("http://www.", "http://np.")
             self.output.write("%d comment ([1](%s))" % (len(comments), link))
-            self.output.write(", **total score: %d**" % score);
+            self.output.write(", **total score: %d**" % score)
         elif len(comments) > 1:
             score = 0
             self.output.write("%d comments (" % len(comments))
