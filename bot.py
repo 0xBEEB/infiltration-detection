@@ -36,11 +36,12 @@ class Bot:
             user_to_infiltrate = self.get_user_name_from_message(msg.body)
 
             if user_to_infiltrate.lower() == settings['username'].lower():
-                try:
-                    tempBody = msg.body.split(' ', 1)[1]
-                    user_to_infiltrate = self.get_user_name_from_message(tempBody)
-                except IndexError:
-                    continue
+                # try:
+                #     tempBody = msg.body.split(' ', 1)[1]
+                #     user_to_infiltrate = self.get_user_name_from_message(tempBody)
+                # except IndexError:
+                #     continue
+                continue
 
             user = User(user_to_infiltrate, self.reddit)
 
