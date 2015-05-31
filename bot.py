@@ -40,9 +40,12 @@ class Bot:
                     tempBody = msg.body.split(' ', 1)[1]
                     user_to_infiltrate = self.get_user_name_from_message(tempBody)
                 except IndexError:
-                    return
+                    continue
 
             user = User(user_to_infiltrate, self.reddit)
+
+            if user.get_username().lower in settings['username'].lower():
+                continue
 
             report = UserReport(user, self.suspicious_subs)
             info = report.write()
