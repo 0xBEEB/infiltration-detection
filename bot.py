@@ -45,7 +45,7 @@ class Bot:
 
             user = User(user_to_infiltrate, self.reddit)
 
-            if user.get_username().lower in settings['username'].lower():
+            if user.get_username().lower() in settings['username'].lower():
                 continue
 
             report = UserReport(user, self.suspicious_subs)
